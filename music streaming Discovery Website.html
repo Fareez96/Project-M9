@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hymn - Music Streaming</title>
+</head>
+
+<body>
+    <header>
+        <h1><img src="Free_Sample_By_Wix.jpg" alt="Icon" class="icon">Hymn</h1>
+        <nav>
+            <ul>
+                <li><a id="tabFeaturedMusic" href="#">Featured Music</a></li>
+                <li><a id="tabLikedSongs" href="#">Liked Songs</a></li>
+                <li><a href="another_page.html" target="_blank"><img src="info-icon.png" alt="Info"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Discover New Music</h2>
+        <p>Stream your favorite songs and discover new tracks with Hymn.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+
+    <section class="Genre" id="Genre">
+        <h2>Genre</h2>
+        <div class="genre-card" onclick="showGenre('pop')">
+            <img src="OIP98.jpeg" alt="Pop Icon">
+            <p>Pop</p>
+        </div>
+        <div class="genre-card" onclick="showGenre('rock')">
+            <img src="R.jpeg" alt="Rock Icon">
+            <p>Rock</p>
+        </div>
+        <div class="genre-card" onclick="showGenre('hiphop')">
+            <img src="811QbS-5ySL._SS500_.jpg" alt="Hip Hop Icon">
+            <p>Hip Hop</p>
+        </div>
+        <div class="genre-card" onclick="showGenre('classical')">
+            <img src="ab67616d0000b27300917abb454ff4cf83c663d2.jpeg" alt="classical Icon">
+            <p>Classical</p>
+        </div>
+        <div class="genre-card" onclick="showGenre('jazz')">
+            <img src="R.png" alt="Jazz Icon">
+            <p>Jazz</p>
+        </div>
+        <div class="genre-card" onclick="showGenre('trending')">
+            <img src="Whats-Trending-2.jpg" alt="Trending Icon">
+            <p>Trending</p>
+        </div>
+        <!-- Add more genre cards here -->
+    </section>
+
+</section>
+<section class="featured-music" id="featured-music">
+    <h2>Featured Music</h2>
+    <div class="music-card">
+        <img src="OIP10.jpeg" alt="Song 1">
+        <h3><a href="Eminem  Without Me Lyrics.mp3" onclick="openMusicPlayer('Eminem_Without_Me_Lyrics.mp3', 'Without Me', 'Eminem')">Without Me</a></h3>
+        <p>By Eminem</p>
+    </div>
+    <div class="music-card">
+        <img src="th.jpeg" alt="Song 2">
+        <h3><a href="Sway.mp3" onclick="openMusicPlayer('Sway.mp3', 'Sway', 'Michael Bublé')">Sway</a></h3>
+        <p>By Michael Bublé</p>
+    </div>
+    <div class="music-card">
+        <img src="Ludovico.jpg" alt="Song 3">
+        <h3><a href="Ludovico Einaudi  Einaudi Nuvole Bianche Live From The Steve Jobs Theatre  2019.mp3" onclick="openMusicPlayer('Ludovico_Einaudi_Nuvole_Bianche.mp3', 'Nuvole Bianche', 'Ludovico Einaudi')">Nuvole Bianche</a></h3>
+        <p>By Ludovico Einaudi</p>
+    </div>
+    <div class="music-card">
+        <img src="OIP (1).jpeg" alt="Song 4">
+        <h3><a href="spotifydown.com - slower.mp3" onclick="openMusicPlayer('spotifydown.com - slower.mp3', 'slower', 'TateMCRAE')">slower</a></h3>
+        <p>By TateMCRAE</p>
+    </div>
+    <!-- Add more music cards here -->
+</section>
+
+<section class="liked-music" id="liked-music" style="display: none;">
+    <h2>Liked Songs</h2>
+    <div class="music-card">
+        <img src="LikedSong1.jpeg" alt="Liked Song 1">
+        <h3><a href="LikedSongs1.mp3" onclick="openMusicPlayer('LikedSongs1.mp3', 'slower', 'TateMCRAE')">slower</a></h3>
+        <p>TateMCRAE</p>
+    </div>
+    <div class="music-card">
+        <img src="Screenshot_20210608-092448-01.jpeg" alt="Liked Song 2">
+        <h3><a href="spotifydown.com - Levitating (feat. DaBaby).mp3" onclick="openMusicPlayer('spotifydown.com - Levitating (feat. DaBaby).mp3', 'Levitating', 'Dua Lipa')">Levitating</a></h3>
+        <p>Dua Lipa</p>
+    </div>
+    <div class="music-card">
+        <img src="OIP.jpeg" alt="Liked Song 3">
+        <h3><a href="spotifydown.com - Night Changes.mp3" onclick="openMusicPlayer('spotifydown.com - Night Changes.mp3', 'Night Changes', 'One Direction')">Night Changes</a></h3>
+        <p>One Direction</p>
+    </div>
+    <!-- Add more liked music cards here -->
+</section>
+
+
+    <section id="info-tab" style="display: none;">
+        <h2>About Hymn</h2>
+        <p>Hymn, the word derived from the word melody</p>
+        <p>Is an Indian audio streaming and media services provider that was founded on October 19, 2023, by Fareez Raza, Lalhlimtluanga, and Izan Nissar Lone. It has rapidly become one of the largest music streaming service providers in India.</p>
+        <p>As of November 2023, Hymn boasts a substantial user base, with over 574 million monthly active users. Among these users, there are 226 paying subscribers who enjoy premium features and an ad-free experience.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Hymn Music Streaming</p>
+    </footer>
+
+    <div id="music-player" style="display: none;">
+        <div class="music-player-content">
+            <div class="music-details">
+                <h2 id="music-title"></h2>
+                <p id="music-artist"></p>
+            </div>
+            <audio id="audio-player" controls></audio>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between "Featured Music" and "Liked Songs" tabs
+        document.getElementById("tabFeaturedMusic").addEventListener("click", function () {
+            document.getElementById("featured-music").style.display = "block";
+            document.getElementById("liked-music").style.display = "none";
+            document.getElementById("info-tab").style.display = "none";
+            document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+            // Add styles to make the "Featured Music" tab active
+            this.classList.add("active");
+            document.getElementById("tabLikedSongs").classList.remove("active");
+        });
+
+        document.getElementById("tabLikedSongs").addEventListener("click", function () {
+            document.getElementById("featured-music").style.display = "none";
+            document.getElementById("liked-music").style.display = "block";
+            document.getElementById("info-tab").style.display = "none";
+            document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+            // Add styles to make the "Liked Songs" tab active
+            this.classList.add("active");
+            document.getElementById("tabFeaturedMusic").classList.remove("active");
+        });
+
+        // Add an event listener for the info icon
+        document.querySelector('nav a img').addEventListener('click', function () {
+            document.getElementById("info-tab").style.display = "block";
+            document.getElementById("featured-music").style.display = "none";
+            document.getElementById("liked-music").style.display = "none";
+            document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+            // Adjust other styles as needed
+        });
+
+        function showGenre(genre) {
+            // Hide other sections
+            document.getElementById("featured-music").style.display = "none";
+            document.getElementById("liked-music").style.display = "none";
+            document.getElementById("info-tab").style.display = "none";
+
+            // Show the selected genre section (you can customize this part)
+            document.getElementById("Genre").style.display = "block";
+
+            // You can add more logic here to load specific content for each genre
+            console.log("Show content for genre: " + genre);
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<style class="css">/* Reset some default styles */
+    body, h1, h2, h3, p {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    header {
+        background-color: #333;
+        color: #06d44b;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    
+    nav ul {
+        list-style: none;
+    }
+    
+    nav li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .hero {
+    text-align: center;
+    padding: 50px;
+    background: url('background.jpg') no-repeat center center;
+    background-size: cover;
+    color: #040404;
+}
+
+.cta-button {
+    text-align: center;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block; /* Add this to make it a block element */
+}
+    
+/* Add styles for the Genre section */
+.Genre {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4; /* Adjust the background color as needed */
+}
+
+.genre-card {
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.genre-card img {
+    max-width: 100%;
+    border-radius: 50%; /* Make the genre icons circular */
+}
+
+.genre-card p {
+    margin-top: 10px;
+    color: #333; /* Adjust the text color as needed */
+}
+
+/* Media Queries for Responsiveness - You can add more as needed */
+@media (max-width: 768px) {
+    .Genre {
+        padding: 30px; /* Adjust the padding as needed for smaller screens */
+    }
+
+    .genre-card {
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+    .featured-music {
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        padding: 50px;
+        color: skyblue;
+    }
+    
+    .music-card {
+        text-align: center;
+        margin: 0 20px;
+    }
+    
+    .music-card img {
+        max-width: 100%;
+    }
+    
+    #liked-music {
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 50px; /* Adjust the padding as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #liked-music .music-card {
+        margin: 20px 0; /* Adjust the margin as needed */
+    }
+
+
+#liked-music h2 {
+    color: white; /* Set the text color of the "Liked Songs" heading to white */
+}
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    /* Media Queries for Responsiveness - You can add more as needed */
+    @media (max-width: 768px) {
+        .featured-music {
+            flex-direction: column;
+        }
+    }
+    /* Show the "Liked Songs" section when the "Liked Songs" tab is clicked */
+#tabLikedSongs.active {
+    font-weight: bold;
+    /* You can add more styling to indicate the active tab, e.g., change text color or background color */
+}
+
+#featured-music {
+    display: block;
+}
+
+#liked-music {
+    display: none;
+}
+    </style>
+
+
+
+<script class="javascript">
+    // Function to open the music player
+    function openMusicPlayer(audioFile, title, artist) {
+        const audioPlayer = document.getElementById("audio-player");
+        const musicTitle = document.getElementById("music-title");
+        const musicArtist = document.getElementById("music-artist");
+
+        audioPlayer.src = audioFile;
+        musicTitle.textContent = title;
+        musicArtist.textContent = artist;
+
+        const musicPlayer = document.getElementById("music-player");
+        musicPlayer.style.display = "block";
+    }
+
+    // Function to handle clicks on the Hymn logo or icon (go back to home page)
+    document.querySelector('header h1 img').addEventListener('click', function () {
+        // Show the home page and hide other sections
+        document.getElementById("featured-music").style.display = "block";
+        document.getElementById("liked-music").style.display = "none";
+        document.getElementById("info-tab").style.display = "none";
+        document.getElementById("Genre").style.display = "none";
+
+        // Reset styles for tabs
+        document.getElementById("tabFeaturedMusic").classList.add("active");
+        document.getElementById("tabLikedSongs").classList.remove("active");
+    });
+
+    // Function to show genre content
+    function showGenre(genre) {
+        // Hide other sections
+        document.getElementById("featured-music").style.display = "none";
+        document.getElementById("liked-music").style.display = "none";
+        document.getElementById("info-tab").style.display = "none";
+
+        // Show the selected genre section
+        document.getElementById("Genre").style.display = "block";
+
+        // Load content for each genre
+        loadGenreContent(genre);
+
+        // Adjust styles for smaller screens
+        adjustGenreStyles();
+    }
+
+    // Function to load content for each genre
+    function loadGenreContent(genre) {
+        // You can add logic here to load specific content for each genre
+        // For now, let's log a message to the console
+        console.log("Load content for genre: " + genre);
+    }
+
+    // Function to adjust styles for genre icons based on screen size
+    function adjustGenreStyles() {
+        const genreCards = document.querySelectorAll('.genre-card');
+        genreCards.forEach(card => {
+            card.style.display = "block"; // Set display to block initially
+
+            // Adjust styles for smaller screens
+            if (window.innerWidth <= 768) {
+                card.style.display = "inline-block"; // Change to inline-block for smaller screens
+                card.style.margin = "0 10px"; // Adjust margin for smaller screens
+            }
+        });
+    }
+
+    // Add an event listener for window resize to handle responsiveness
+    window.addEventListener('resize', adjustGenreStyles);
+
+    // Toggle between "Featured Music" and "Liked Songs" tabs
+    document.getElementById("tabFeaturedMusic").addEventListener("click", function () {
+        document.getElementById("featured-music").style.display = "block";
+        document.getElementById("liked-music").style.display = "none";
+        document.getElementById("info-tab").style.display = "none";
+        document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+        // Add styles to make the "Featured Music" tab active
+        this.classList.add("active");
+        document.getElementById("tabLikedSongs").classList.remove("active");
+    });
+
+    document.getElementById("tabLikedSongs").addEventListener("click", function () {
+        document.getElementById("featured-music").style.display = "none";
+        document.getElementById("liked-music").style.display = "block";
+        document.getElementById("info-tab").style.display = "none";
+        document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+        // Add styles to make the "Liked Songs" tab active
+        this.classList.add("active");
+        document.getElementById("tabFeaturedMusic").classList.remove("active");
+    });
+
+    // Add an event listener for the info icon
+    document.querySelector('nav a img').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior (opening in a new tab)
+
+        const infoTab = document.getElementById("info-tab");
+        const featuredMusic = document.getElementById("featured-music");
+        const likedMusic = document.getElementById("liked-music");
+
+        infoTab.style.display = "block";
+        featuredMusic.style.display = "none";
+        likedMusic.style.display = "none";
+        document.getElementById("Genre").style.display = "none"; // Hide the Genre section
+        // Adjust other styles as needed
+    });
+</script>
+
+
+
